@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game</title>
+    <style>
+        body{
+            background-image: url("background.jpg");
+        }
+        #myImg{
+            width:100px;
+            position: relative;
+            cursor: crosshair;
+            border-radius: 50px;
+        }
+        #point{
+            text-align: right;
+            color: white;
+            font-weight: 700;
+        }
+        #title{
+            font-family: 'Gill Sans', 'Gill Sans MT', ;
+            color: white;
+            text-align: center;
+            font-size: 50px;
+            border: 2px solid black;
+         
+        }
+    </style>
+</head>
+<body>
+     <h1 id="title">SHOOTING GAME</h1>
+    <h1 id="point">Score : 0</h1>
+    <img src="shoot-img.jpg" id="myImg" onclick="scoreboard()" >
+    
+    <script type="text/javascript">
+        audio = new Audio('9mm-pistol-shot.mp3');
+
+        function changePosition(){
+        a=document.getElementById('myImg')
+        x=Math.ceil(Math.random()*400)
+        y=Math.ceil(Math.random()*1000)
+        a.style.top=x+"px"
+        a.style.left=y+"px"
+    }
+    setInterval(changePosition,2000)
+    score=0;
+    n=document.getElementById("point")
+    function scoreboard(){
+        score++;
+        n.innerHTML="Score :"+score;
+        audio.play();
+    }
+
+    </script>
+</body>
+</html>
